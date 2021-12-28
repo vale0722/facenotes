@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
-    'welcome' => 'Welcome',
-    'options' => 'What do you want to do?',
+    'previous' => '&laquo; Anterior',
+    'next' => 'Siguiente &raquo;',
+    'welcome' => 'Bienvenid@',
+    'options' => '¿Qué deseas hacer?',
 ];
