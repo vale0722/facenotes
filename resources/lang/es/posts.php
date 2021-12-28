@@ -3,7 +3,10 @@
 return [
     'titles' => [
         'create' => 'Crear un Post',
+        'edit' => 'Editar',
         'index' => 'Ver Posts',
+        'show' => 'Ver',
+        'delete' => 'Eliminar',
     ],
     'fields' => [
         'title' => 'Título',

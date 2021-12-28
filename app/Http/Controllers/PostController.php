@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Posts\FormPostRequest;
 use App\Models\Post;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -16,69 +16,44 @@ class PostController extends Controller
         return view('posts.index', ['posts' => $posts]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('posts.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
+    public function store(FormPostRequest $request): RedirectResponse
     {
-        //
+        $post = new Post();
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
+        $post->save();
+
+        return response()->redirectToRoute('posts.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
+    public function show(Post $post): View
     {
-        //
+        return view('posts.show', ['post' => $post]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
+    public function edit(Post $post): View
     {
-        //
+        return view('posts.edit', ['post' => $post]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
+    public function update(FormPostRequest $request, Post $post): RedirectResponse
     {
-        //
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
+        $post->save();
+
+        return response()->redirectToRoute('posts.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return response()->redirectToRoute('posts.index');
     }
 }

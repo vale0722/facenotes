@@ -6,7 +6,7 @@ use App\Models\Post;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class IndexPosts extends TestCase
+class IndexPostsTest extends TestCase
 {
     use RefreshDatabase;
 
