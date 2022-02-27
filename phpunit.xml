@@ -12,9 +12,6 @@
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
     </testsuites>
-    <logging>
-        <junit outputFile="./tests/coverage/coverage.xml"/>
-    </logging>
     <coverage processUncoveredFiles="true">
         <include>
             <directory suffix=".php">./app</directory>
@@ -35,4 +32,7 @@
         <server name="SESSION_DRIVER" value="array"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
     </php>
+    <logging>
+        <junit outputFile="./tests/coverage/tests.xml"/>
+    </logging>
 </phpunit>
