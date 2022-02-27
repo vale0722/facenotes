@@ -13,7 +13,7 @@
         </testsuite>
     </testsuites>
     <logging>
-        <junit outputFile="./tests/coverage/tests.xml"/>
+        <junit outputFile="./tests/coverage/coverage.xml"/>
     </logging>
     <coverage processUncoveredFiles="true">
         <include>
